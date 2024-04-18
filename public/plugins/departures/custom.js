@@ -23,11 +23,11 @@ sf.display.ImageDrum = function() {
   ];
 };
 
-sf.plugins.arrivals = {
+sf.plugins.departures = {
   dataType: 'json',
 
   url: function(options) {
-    return 'api/arrivals';
+    return 'api/departures';
   },
 
   formatData: function(response) {

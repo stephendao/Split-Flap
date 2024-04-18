@@ -43,7 +43,7 @@ The individual elements' animation speed is set in the fadeIn() and fadeOut() fu
 
 ## Data
 
-The example Node app at `app.js` exposes an API route at `/api/arrivals` which demonstrates sending data to `split-flap.js`.
+The example Node app at `app.js` exposes an API route at `/api/departures` which demonstrates sending data to `split-flap.js`.
 
 ```
 {

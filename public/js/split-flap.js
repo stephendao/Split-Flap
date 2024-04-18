@@ -313,18 +313,22 @@ sf.Items = Backbone.Collection.extend({
 
     loadSequentially: (input, container) => {
       const rows = container.find('.row'),
-        stagger = sf.options.stagger ? sf.options.stagger : 1000;
+        stagger = sf.options.stagger ? sf.options.stagger : 1000,
+        rowGroup = sf.options.rowGroup ? sf.options.rowGroup : 1;
       let i = 0;
       function loop() {
         setTimeout(function() {
-          if (input[i]) {
-            console.log(`Row ${i + 1}:`, input[i]);
-            sf.display.loadRow(input[i], $(rows[i]));
-          } else {
-            console.log(`Row ${i + 1}: Empty`);
-            sf.board.clearRow(rows[i]);
+          for (let j = 0; j < rowGroup; j++) {
+            if (input[i]) {
+              console.log(`Row ${i + 1}:`, input[i]);
+              sf.display.loadRow(input[i], $(rows[i]));
+            } else {
+              console.log(`Row ${i + 1}: Empty`);
+              sf.board.clearRow(rows[i]);
+            }
+
+            i++;
           }
-          i++;
           if (i < rows.length) {
             loop(i);
           }
